@@ -45,6 +45,6 @@ var allCards = document.querySelectorAll('.card');
 
 allCards.forEach(function(card) {
     card.addEventListener('click', function(event) {
-        console.log(event);
+        card.classList.add('open', 'show')
     });
 });
