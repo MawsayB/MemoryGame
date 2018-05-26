@@ -1,7 +1,13 @@
 /*
  * Create a list that holds all of your cards
  */
+var listOfCards = document.querySelectorAll('card');
 
+//alternative way might be --> var deck = $('.deck');
+
+listOfCards.on('click', 'li', function() {
+    //$(this).css('background-color', color.val());
+});
 
 /*
  * Display the cards on the page
@@ -25,6 +31,11 @@ function shuffle(array) {
     return array;
 }
 
+//when card is clicked
+//the card changes to the contents
+
+//when container is clicked... 
+//locate which unique ID has been selected
 
 /*
  * set up the event listener for a card. If a card is clicked:
