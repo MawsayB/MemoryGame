@@ -1,17 +1,10 @@
 /*
  * Create a list that holds all of your cards
  */
-var listOfCards = document.querySelectorAll('card');
-
-//alternative way might be --> var deck = $('.deck');
-
-listOfCards.on('click', 'li', function() {
-    //$(this).css('background-color', color.val());
-});
 
 /*
  * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - shuffle (BELOW?) the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
@@ -47,3 +40,11 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+var allCards = document.querySelectorAll('.card');
+
+allCards.forEach(function(card) {
+    card.addEventListener('click', function(event) {
+        console.log(event);
+    });
+});
