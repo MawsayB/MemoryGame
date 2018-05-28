@@ -58,11 +58,13 @@ function shuffle(array) {
 
 function initGame() {
     var deck = document.querySelector('.deck');
+    var moveCounter = document.querySelector('.moves');
+
     var cardHTML = shuffle(cards).map(function (card) {
         return generateCard(card);
     });
-
-    var moves = 0;
+    moves = 0;
+    moveCounter.innerText = moves;
 
     deck.innerHTML = cardHTML.join('');
 }
@@ -71,6 +73,9 @@ initGame();
 
 var allCards = document.querySelectorAll('.card');
 var openCards = [];
+var moves = 0;
+var moveCounter = document.querySelector('.moves');
+
 
 allCards.forEach(function (card) {
     card.addEventListener('click', function (event) {
@@ -98,6 +103,9 @@ allCards.forEach(function (card) {
                         openCards = [];
                     }, 1000);
                 }
+
+                moves += 1;
+                moveCounter.innerText = moves;
             }
         }
     });
