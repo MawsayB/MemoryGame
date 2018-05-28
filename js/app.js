@@ -1,5 +1,5 @@
 /*
- * Create a list that holds all of your cards
+ * Creates an array that holds all cards
  */
 
 var cards = ['fa-diamond', 'fa-diamond',
@@ -13,7 +13,6 @@ var cards = ['fa-diamond', 'fa-diamond',
 ]
 
 function generateCard(card) {
-    //check the below line of code
     return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
 }
 
@@ -56,8 +55,30 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
+ //timer notes:
+ //setTimeout - once
+ //use setInterval - over and over and over
+ //put in initGame function
+ //that adds 1 to the timer
+ //update text with timer
+ //clearInterval resets the timer
+
+ //var timer = setTimeout();
+ //pass setTimeout to clearTimeout to kill the timer
+
+ //solve bug that allows 3 cards to be open at once... do something
+ //with the timer?
+
+ //resets game when reset button is clicked
+var restart = document.querySelector('.restart')
+
+restart.addEventListener("click", function () {
+    location.reload();
+});
+
 function initGame() {
     var deck = document.querySelector('.deck');
+    //keep the line below?
     var moveCounter = document.querySelector('.moves');
 
     var cardHTML = shuffle(cards).map(function (card) {
