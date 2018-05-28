@@ -50,6 +50,8 @@ restart.addEventListener("click", function () {
     location.reload();
 });
 
+
+// Displays star rating for number of moves
 function generateStar() {
     //when moves = 20 --> 1 star
     //when moves = 13 --> 2 stars
@@ -57,10 +59,10 @@ function generateStar() {
     const htmlTextToAdd = '<li><i class="fa fa-star"></i></li>';
     const oneStar = document.querySelector('li');
 
-    if (moves == 20){
+    if (moves == 20) {
         stars.removeChild(oneStar);
     }
-    if (moves == 13){
+    if (moves == 13) {
         stars.removeChild(oneStar);
     }
     if (moves == 1) {
@@ -95,10 +97,13 @@ var stars = document.querySelector('.stars');
 // function description here
 allCards.forEach(function (card) {
     card.addEventListener('click', function (event) {
+
+        // Disables the same card location to be open at the same time
         if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
             openCards.push(card);
             card.classList.add('open', 'show');
 
+            // If the cards match, leave them open
             if (openCards.length == 2) {
                 if (openCards[0].dataset.card == openCards[1].dataset.card) {
                     openCards[0].classList.add('match');
@@ -111,7 +116,7 @@ allCards.forEach(function (card) {
 
                     openCards = [];
                 } else {
-                    //if they don't match, hide
+                    //if they don't match, hide the cards
                     setTimeout(function () {
                         openCards.forEach(function (card) {
                             card.classList.remove('open', 'show');
@@ -119,8 +124,10 @@ allCards.forEach(function (card) {
                         openCards = [];
                     }, 1000);
                 }
+                // Increase move counter by 1
                 moves += 1;
                 moveCounter.innerText = moves;
+                // Updates start rating as moves increase
                 generateStar();
             }
         }
