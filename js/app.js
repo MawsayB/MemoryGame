@@ -14,7 +14,7 @@ var cards = ['fa-diamond', 'fa-diamond',
 
 function generateCard(card) {
     //check the below line of code
-    return `<li class="card"><i class="fa ${card}"></i></li>`;
+    return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
 }
 
 /*
@@ -62,6 +62,8 @@ function initGame() {
         return generateCard(card);
     });
 
+    var moves = 0;
+
     deck.innerHTML = cardHTML.join('');
 }
 
@@ -76,18 +78,26 @@ allCards.forEach(function (card) {
             openCards.push(card);
             card.classList.add('open', 'show');
 
-            //check for match, no match, flip over
-
-            var firstCardType = openCards[0].dataset.card;
-            console.log(firstCardType);
-
             if (openCards.length == 2) {
-                setTimeout(function () {
-                    openCards.forEach(function (card) {
-                        card.classList.remove('open', 'show');
-                    });
+                if (openCards[0].dataset.card == openCards[1].dataset.card) {
+                    openCards[0].classList.add('match');
+                    openCards[0].classList.add('open');
+                    openCards[0].classList.add('show');
+
+                    openCards[1].classList.add('match');
+                    openCards[1].classList.add('open');
+                    openCards[1].classList.add('show');
+
                     openCards = [];
-                }, 1000);
+                } else {
+                    //if they don't match, hide
+                    setTimeout(function () {
+                        openCards.forEach(function (card) {
+                            card.classList.remove('open', 'show');
+                        });
+                        openCards = [];
+                    }, 1000);
+                }
             }
         }
     });
