@@ -29,21 +29,21 @@ function shuffle(array) {
     return array;
 }
 
- //timer notes:
- //setTimeout - once
- //use setInterval - over and over and over
- //put in initGame function
- //that adds 1 to the timer
- //update text with timer
- //clearInterval resets the timer
+//timer notes:
+//setTimeout - once
+//use setInterval - over and over and over
+//put in initGame function
+//that adds 1 to the timer
+//update text with timer
+//clearInterval resets the timer
 
- //var timer = setTimeout();
- //pass setTimeout to clearTimeout to kill the timer
+//var timer = setTimeout();
+//pass setTimeout to clearTimeout to kill the timer
 
- //solve bug that allows 3 cards to be open at once... do something
- //with the timer?
+//solve bug that allows 3 cards to be open at once... do something
+//with the timer?
 
- // Resets game when reset button is clicked
+// Resets game when reset button is clicked
 var restart = document.querySelector('.restart')
 
 restart.addEventListener("click", function () {
@@ -51,7 +51,23 @@ restart.addEventListener("click", function () {
 });
 
 function generateStar() {
-    return `<li><i class="fa fa-star"></i></li>`;
+    //when moves = 20 --> 1 star
+    //when moves = 13 --> 2 stars
+    //when moves = 0 --> 3 stars
+    const htmlTextToAdd = '<li><i class="fa fa-star"></i></li>';
+    const oneStar = document.querySelector('li');
+
+    if (moves == 20){
+        stars.removeChild(oneStar);
+    }
+    if (moves == 13){
+        stars.removeChild(oneStar);
+    }
+    if (moves == 1) {
+        stars.insertAdjacentHTML('beforeend', htmlTextToAdd);
+        stars.insertAdjacentHTML('beforeend', htmlTextToAdd);
+        stars.insertAdjacentHTML('beforeend', htmlTextToAdd);
+    }
 }
 
 // Starts new game
@@ -105,17 +121,8 @@ allCards.forEach(function (card) {
                 }
                 moves += 1;
                 moveCounter.innerText = moves;
+                generateStar();
             }
-        }
-            if(moves <= 12){
-                //3 stars for 12 or less moves
-                console.log("Found me!")
-                const htmlTextToAdd = '<li><i class="fa fa-star"></i></li>';
-                stars.insertAdjacentHTML('beforeend', htmlTextToAdd);
-
-
-            } else {
-                console.log("Broken");
         }
     });
 });
