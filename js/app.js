@@ -29,20 +29,6 @@ function shuffle(array) {
     return array;
 }
 
-//timer notes:
-//setTimeout - once
-//use setInterval - over and over and over
-//put in initGame function
-//that adds 1 to the timer
-//update text with timer
-//clearInterval resets the timer
-
-//var timer = setTimeout();
-//pass setTimeout to clearTimeout to kill the timer
-
-//solve bug that allows 3 cards to be open at once... do something
-//with the timer?
-
 // Resets game when reset button is clicked
 var restart = document.querySelector('.restart')
 
@@ -84,6 +70,21 @@ function initGame() {
     moveCounter.innerText = moves;
 
     deck.innerHTML = cardHTML.join('');
+
+    //timer notes:
+    //setTimeout - once
+    //use setInterval - over and over and over
+    //put in initGame function
+    //that adds 1 to the timer
+    //update text with timer
+    //clearInterval resets the timer
+
+    //var timer = setTimeout();
+    //pass setTimeout to clearTimeout to kill the timer
+
+    //solve bug that allows 3 cards to be open at once... do something
+    //with the timer?
+
 }
 
 initGame();
