@@ -58,6 +58,29 @@ function generateStar() {
     }
 }
 
+var timer = document.querySelector('.timer');
+
+var min = 0
+var sec = 00;
+
+var interval;
+
+function gameTimer() {
+    gamePlay = setInterval(function() {
+        timer.innerHTML = min + " : " + sec;
+        sec++;
+
+        if (sec == 60){
+            min++;
+            sec = 00;
+        }
+    }, 1000);
+
+    if (min == 60) {
+        clearInterval(gamePlay);
+    }
+}
+
 // Starts new game
 function initGame() {
     var deck = document.querySelector('.deck');
@@ -71,20 +94,10 @@ function initGame() {
 
     deck.innerHTML = cardHTML.join('');
 
-    //timer notes:
-    //setTimeout - once
-    //use setInterval - over and over and over
-    //put in initGame function
-    //that adds 1 to the timer
-    //update text with timer
-    //clearInterval resets the timer
-
-    //var timer = setTimeout();
-    //pass setTimeout to clearTimeout to kill the timer
+    gameTimer();
 
     //solve bug that allows 3 cards to be open at once... do something
     //with the timer?
-
 }
 
 initGame();
@@ -95,7 +108,7 @@ var moves = 0;
 var moveCounter = document.querySelector('.moves');
 var stars = document.querySelector('.stars');
 
-// function description here
+// Evaluates if the 2 cards flipped are a match
 allCards.forEach(function (card) {
     card.addEventListener('click', function (event) {
 
