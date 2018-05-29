@@ -76,16 +76,17 @@ function gameTimer() {
         }
     }, 1000);
 
+    // is this really turning off the timer?
     if (min == 60) {
         clearInterval(timer);
     }
 }
 
-// Game Won!
-function gameWon() {
-    document.getElementById('congratsModal');
-    modal.style.display = "block";
-}
+// FINISH THIS FUNCTION Game Won!
+// function gameWon() {
+//     document.getElementById('congratsModal');
+//     modal.style.display = "block";
+// }
 
 // Starts new game
 function initGame() {
@@ -152,7 +153,8 @@ allCards.forEach(function (card) {
                 // When all 8 matches are found, congrats to user on finished game
                 if (matchedCards.length == 16) {
                     console.log("You won!");
-                    gameWon();
+                    clearInterval(timer);
+                    // gameWon();
                 }
 
                 // Increase move counter by 1

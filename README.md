@@ -16,7 +16,7 @@ Memory Game is built with JavaScript, CSS, and HTML.
 ## Ideas for Updates
 
 * Card animation.
-* Themed card icons (PIXAR, family headshots, etc.)
+* Themed card icons (PIXAR, family headshots, etc.).
 * Reduce deck to 9 cards for a mobile screen.
 
 
