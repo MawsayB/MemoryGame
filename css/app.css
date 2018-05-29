@@ -102,6 +102,7 @@ h1 {
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
+    color: gold;
 }
 
 .score-panel .timer {
@@ -112,4 +113,5 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+    color: red;
 }

@@ -61,12 +61,12 @@ function generateStar() {
 var timer = document.querySelector('.timer');
 
 var min = 0
-var sec = 00;
+var sec = 0;
 
-var interval;
+var gameTimer;
 
 function gameTimer() {
-    gamePlay = setInterval(function () {
+    var gameTimer = setInterval(function () {
         timer.innerHTML = min + " : " + sec;
         sec++;
 
@@ -76,17 +76,11 @@ function gameTimer() {
         }
     }, 1000);
 
-    // is this really turning off the timer?
-    if (min == 60) {
-        clearInterval(timer);
-    }
 }
 
-// FINISH THIS FUNCTION Game Won!
-// function gameWon() {
-//     document.getElementById('congratsModal');
-//     modal.style.display = "block";
-// }
+function clearGameTimer() {
+    clearTimeout(gameTimer);
+}
 
 // Starts new game
 function initGame() {
@@ -102,6 +96,17 @@ function initGame() {
     deck.innerHTML = cardHTML.join('');
 
     gameTimer();
+
+    // if (timer.innerText == "0 : 5") {
+    //     console.log("Found me!");
+    //     clearGameTimer();
+    // }
+
+    // FINISH THIS FUNCTION Game Won!
+    // function gameWon() {
+    //     document.getElementById('congratsModal');
+    //     modal.style.display = "block";
+    // }
 
     //solve bug that allows 3 cards to be open at once... do something
     //with the timer?
@@ -151,7 +156,7 @@ allCards.forEach(function (card) {
                 }
 
                 // When all 8 matches are found, congrats to user on finished game
-                if (matchedCards.length == 16) {
+                if (matchedCards.length == 2) {
                     console.log("You won!");
                     clearInterval(timer);
                     // gameWon();
