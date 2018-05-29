@@ -132,13 +132,25 @@ h1 {
     margin-top: 10%;
     overflow: auto; /* Enable scroll if needed */
     background-color: white;
-    padding: 40px;
+    padding: 20px;
     border-radius: 25px;
 }
 
-p .modalText{
+p {
     font-size: 60px;
     font-weight: bold;
     text-align: center;
     color: rgb(101, 106, 196);
+}
+
+.congratsModal .gameStats {
+    text-align: center;
+}
+
+p {
+    margin: 0;
+}
+
+p#modalText {
+    margin-top: 30px;
 }
