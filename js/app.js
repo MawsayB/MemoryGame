@@ -158,7 +158,9 @@ allCards.forEach(function (card) {
                 // When all 8 matches are found, congrats to user on finished game
                 if (matchedCards.length == 2) {
                     console.log("You won!");
-                    clearInterval(timer);
+                    var modal = document.getElementById('congratsModal');
+                    modal.style.display = "block";
+                    //clearInterval(timer);
                     // gameWon();
                 }
 
