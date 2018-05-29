@@ -136,7 +136,7 @@ h1 {
     border-radius: 25px;
 }
 
-p {
+p .modalText{
     font-size: 60px;
     font-weight: bold;
     text-align: center;
