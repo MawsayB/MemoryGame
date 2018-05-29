@@ -126,14 +126,15 @@ h1 {
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
-    width: 50%; /* Full width */
-    height: 50%; /* Full height */
+    width: 50%; 
+    height: 50%; 
     margin-left: 25%;
     margin-top: 10%;
     overflow: auto; /* Enable scroll if needed */
     background-color: white;
     padding: 20px;
     border-radius: 25px;
+    border: 2px solid yellow;
 }
 
 p {
@@ -153,4 +154,33 @@ p {
 
 p#modalText {
     margin-top: 30px;
+}
+
+@media screen and (min-width: 450px) {
+    .modal {
+        height: 25%;
+        margin-top: 40%;
+    }
+
+    .container {
+        margin-top: 25%;
+    }
+
+    @media screen and (min-width: 550px) {
+        .modal {
+            height: 50%;
+            margin-top: 20%;
+
+        }
+
+        .container {
+            margin-top: -10px;
+        }
+
+      @media screen and (min-width: 800px) {
+          .modal{
+            margin-top: 10%;
+        }
+      }
+    }
 }
