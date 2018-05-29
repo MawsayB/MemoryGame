@@ -1,20 +1,23 @@
-# Memory Game Project
+# Memory Game
 
-## Table of Contents
+## How to Play
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+Goal: Find all matching pairs in the least amount of moves and fastest amount of time.
 
-## Instructions
+* Select two cards.
+* If the icon on the cards match, the cards remains flipped.
+* If the icon on the cards do not match, the cards turn back over.
+* Keep flipping two cards at a time until all pairs are found.
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Dependencies
 
-To get started, open `js/app.js` and start building out the app's functionality
+Memory Game is built with JavaScript, CSS, and HTML.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Ideas for Updates
 
-## Contributing
+* Card animation.
+* Themed card icons (PIXAR, family headshots, etc.)
+* Reduce deck to 9 cards for a mobile screen.
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+

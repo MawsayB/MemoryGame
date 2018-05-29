@@ -81,6 +81,12 @@ function gameTimer() {
     }
 }
 
+// Game Won!
+function gameWon() {
+    document.getElementById('congratsModal');
+    modal.style.display = "block";
+}
+
 // Starts new game
 function initGame() {
     var deck = document.querySelector('.deck');
@@ -143,9 +149,10 @@ allCards.forEach(function (card) {
                     }, 1000);
                 }
 
-                //FINISH THIS: notifies when all matches are found
+                // When all 8 matches are found, congrats to user on finished game
                 if (matchedCards.length == 16) {
                     console.log("You won!");
+                    gameWon();
                 }
 
                 // Increase move counter by 1
