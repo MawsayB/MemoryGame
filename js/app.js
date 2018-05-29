@@ -77,7 +77,7 @@ function gameTimer() {
     }, 1000);
 
     if (min == 60) {
-        clearInterval(gamePlay);
+        clearInterval(timer);
     }
 }
 
@@ -143,6 +143,10 @@ allCards.forEach(function (card) {
                 moveCounter.innerText = moves;
                 // Updates start rating as moves increase
                 generateStar();
+            }
+
+            if (openCards == 16) {
+                clearInterval(timer); 
             }
         }
     });
