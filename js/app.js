@@ -66,11 +66,11 @@ var sec = 00;
 var interval;
 
 function gameTimer() {
-    gamePlay = setInterval(function() {
+    gamePlay = setInterval(function () {
         timer.innerHTML = min + " : " + sec;
         sec++;
 
-        if (sec == 60){
+        if (sec == 60) {
             min++;
             sec = 00;
         }
@@ -104,6 +104,7 @@ initGame();
 
 var allCards = document.querySelectorAll('.card');
 var openCards = [];
+var matchedCards = [];
 var moves = 0;
 var moveCounter = document.querySelector('.moves');
 var stars = document.querySelector('.stars');
@@ -128,6 +129,9 @@ allCards.forEach(function (card) {
                     openCards[1].classList.add('open');
                     openCards[1].classList.add('show');
 
+                    matchedCards.push(openCards[0]);
+                    matchedCards.push(openCards[1]);
+
                     openCards = [];
                 } else {
                     //if they don't match, hide the cards
@@ -138,15 +142,18 @@ allCards.forEach(function (card) {
                         openCards = [];
                     }, 1000);
                 }
+
+                //FINISH THIS: notifies when all matches are found
+                if (matchedCards.length == 16) {
+                    console.log("You won!");
+                }
+
                 // Increase move counter by 1
                 moves += 1;
                 moveCounter.innerText = moves;
                 // Updates start rating as moves increase
                 generateStar();
-            }
 
-            if (openCards == 16) {
-                clearInterval(timer); 
             }
         }
     });
