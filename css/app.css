@@ -105,6 +105,12 @@ h1 {
     color: gold;
 }
 
+li {
+    list-style: none;
+    color: gold;
+    size: 25%;
+}
+
 .score-panel .timer {
     display: inline-block;
     margin-left: 75px;

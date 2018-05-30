@@ -41,7 +41,7 @@ function generateStar() {
     //when moves = 20 --> 1 star
     //when moves = 13 --> 2 stars
     //when moves = 0 --> 3 stars
-    const htmlTextToAdd = '<li><i class="fa fa-star"></i></li>';
+    const htmlTextToAdd = '<li><i class="fa fa-star numStars"></i></li>';
     const oneStar = document.querySelector('li');
 
     if (moves == 20) {
@@ -59,29 +59,8 @@ function generateStar() {
 
 function generateModal() {
     var modal = document.getElementById('congratsModal');
-    // var text = generateModalText();
-    // modal.innerHTML(text);
-
     modal.style.display = "block";
 }
-
-// function generateModalText() {
-//     // sets variable for timer element
-//     var timerStat = document.innerText('timer');
-
-//     // set variable for star element
-//     var starStat = document.getElementsByClassName('stars');
-
-//     return
-//     `<div>
-//     <center>
-//         <h2 class="gameStats">- Game Stats -</h2>
-//     </center>
-//     <center><h3 class="gameStats star-stat">${starStat}</h3></center>
-//     <center><h3 class="gameStats time-stat">${timerStat}</h3></center>
-//     <center><h4 class="gameStats newGame"><a href="javascript:history.go(0)">Want to play again?</a></h4></center>
-//     </div>`
-// }
 
 var timer = document.querySelector('.timer');
 
@@ -154,7 +133,7 @@ allCards.forEach(function (card) {
                             card.classList.remove('open', 'show');
                         });
                         openCards = [];
-                    }, 400);
+                    }, 1000);
                 }
 
                 // When all 8 matches are found, congrats to user on finished game
