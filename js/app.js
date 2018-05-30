@@ -29,13 +29,12 @@ function shuffle(array) {
     return array;
 }
 
-// Resets game when reset button is clicked
+// Resets game when reset button at top of game is clicked
 var restart = document.querySelector('.restart')
 
 restart.addEventListener("click", function () {
     location.reload();
 });
-
 
 // Displays star rating for number of moves
 function generateStar() {
@@ -56,6 +55,12 @@ function generateStar() {
         stars.insertAdjacentHTML('beforeend', htmlTextToAdd);
         stars.insertAdjacentHTML('beforeend', htmlTextToAdd);
     }
+}
+
+function generateModal() {
+    var modal = document.getElementById('congratsModal');
+    modal.style.display = "block";
+    //return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
 }
 
 var timer = document.querySelector('.timer');
@@ -96,20 +101,6 @@ function initGame() {
     deck.innerHTML = cardHTML.join('');
 
     gameTimer();
-
-    // if (timer.innerText == "0 : 5") {
-    //     console.log("Found me!");
-    //     clearGameTimer();
-    // }
-
-    // FINISH THIS FUNCTION Game Won!
-    // function gameWon() {
-    //     document.getElementById('congratsModal');
-    //     modal.style.display = "block";
-    // }
-
-    //solve bug that allows 3 cards to be open at once... do something
-    //with the timer?
 }
 
 initGame();
@@ -157,11 +148,8 @@ allCards.forEach(function (card) {
 
                 // When all 8 matches are found, congrats to user on finished game
                 if (matchedCards.length == 2) {
-                    console.log("You won!");
-                    var modal = document.getElementById('congratsModal');
-                    modal.style.display = "block";
-                    //clearInterval(timer);
-                    // gameWon();
+                    generateModal();
+
                 }
 
                 // Increase move counter by 1
