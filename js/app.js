@@ -143,13 +143,12 @@ allCards.forEach(function (card) {
                             card.classList.remove('open', 'show');
                         });
                         openCards = [];
-                    }, 1000);
+                    }, 400);
                 }
 
                 // When all 8 matches are found, congrats to user on finished game
                 if (matchedCards.length == 2) {
                     generateModal();
-
                 }
 
                 // Increase move counter by 1
