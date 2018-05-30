@@ -59,33 +59,44 @@ function generateStar() {
 
 function generateModal() {
     var modal = document.getElementById('congratsModal');
+    // var text = generateModalText();
+    // modal.innerHTML(text);
+
     modal.style.display = "block";
-    //return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`;
 }
+
+// function generateModalText() {
+//     // sets variable for timer element
+//     var timerStat = document.innerText('timer');
+
+//     // set variable for star element
+//     var starStat = document.getElementsByClassName('stars');
+
+//     return
+//     `<div>
+//     <center>
+//         <h2 class="gameStats">- Game Stats -</h2>
+//     </center>
+//     <center><h3 class="gameStats star-stat">${starStat}</h3></center>
+//     <center><h3 class="gameStats time-stat">${timerStat}</h3></center>
+//     <center><h4 class="gameStats newGame"><a href="javascript:history.go(0)">Want to play again?</a></h4></center>
+//     </div>`
+// }
 
 var timer = document.querySelector('.timer');
 
 var min = 0
 var sec = 0;
 
-var gameTimer;
+let gameTimer = setInterval(function () {
+    timer.innerHTML = min + " : " + sec;
+    sec++;
 
-function gameTimer() {
-    var gameTimer = setInterval(function () {
-        timer.innerHTML = min + " : " + sec;
-        sec++;
-
-        if (sec == 60) {
-            min++;
-            sec = 00;
-        }
-    }, 1000);
-
-}
-
-function clearGameTimer() {
-    clearTimeout(gameTimer);
-}
+    if (sec == 60) {
+        min++;
+        sec = 00;
+    }
+}, 1000);
 
 // Starts new game
 function initGame() {
@@ -100,7 +111,7 @@ function initGame() {
 
     deck.innerHTML = cardHTML.join('');
 
-    gameTimer();
+    gameTimer;
 }
 
 initGame();
@@ -149,6 +160,7 @@ allCards.forEach(function (card) {
                 // When all 8 matches are found, congrats to user on finished game
                 if (matchedCards.length == 2) {
                     generateModal();
+                    clearInterval(gameTimer);
                 }
 
                 // Increase move counter by 1
