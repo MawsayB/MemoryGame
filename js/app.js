@@ -75,7 +75,7 @@ let gameTimer = setInterval(function () {
 // Formats modal, passing endTime and starPlacement
 function generateModal(endTime, starPlacement) {
     var modal = document.getElementById('congratsModal');
-    var starsInModal = `<center><h3 class="gameStats><li><i class="fa fa-star numStars"></i></li>${starPlacement}</h3></center>`
+    var starsInModal = `<ul></li>${starPlacement}</ul>`
 
     modal.insertAdjacentHTML('afterbegin', endTime);
     modal.insertAdjacentHTML('afterbegin', starsInModal)
