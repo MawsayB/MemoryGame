@@ -38,9 +38,9 @@ restart.addEventListener("click", function () {
 
 // Displays star rating for number of moves
 function generateStar() {
-    //when moves = 20 --> 1 star
-    //when moves = 13 --> 2 stars
-    //when moves = 0 --> 3 stars
+    // when moves = 20 --> 1 star
+    // when moves = 13 --> 2 stars
+    // when moves = 0 --> 3 stars
     const htmlTextToAdd = '<li><i class="fa fa-star numStars"></i></li>';
     const oneStar = document.querySelector('li');
 
@@ -57,11 +57,6 @@ function generateStar() {
     }
 }
 
-function generateModal() {
-    var modal = document.getElementById('congratsModal');
-    modal.style.display = "block";
-}
-
 var timer = document.querySelector('.timer');
 
 var min = 0
@@ -76,6 +71,17 @@ let gameTimer = setInterval(function () {
         sec = 00;
     }
 }, 1000);
+
+// Formats modal, passing endTime and starPlacement
+function generateModal(endTime, starPlacement) {
+    var modal = document.getElementById('congratsModal');
+    var starsInModal = `<center><h3 class="gameStats><li><i class="fa fa-star numStars"></i></li>${starPlacement}</h3></center>`
+
+    modal.insertAdjacentHTML('afterbegin', endTime);
+    modal.insertAdjacentHTML('afterbegin', starsInModal)
+
+    modal.style.display = "block";
+}
 
 // Starts new game
 function initGame() {
@@ -138,8 +144,12 @@ allCards.forEach(function (card) {
 
                 // When all 8 matches are found, congrats to user on finished game
                 if (matchedCards.length == 2) {
-                    generateModal();
+                    currentTime = gameTimer;
                     clearInterval(gameTimer);
+                    var endTime = timer.innerText;
+                    var starPlacement = stars.innerHTML;
+                    console.log(starPlacement);
+                    generateModal(endTime, starPlacement);
                 }
 
                 // Increase move counter by 1
