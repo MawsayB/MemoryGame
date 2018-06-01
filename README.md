@@ -11,7 +11,7 @@ Goal: Find all matching pairs in the least amount of moves and fastest amount of
 
 ## Dependencies
 
-Memory Game is built with JavaScript, CSS, and HTML.
+Memory Game is built with JavaScript, CSS, and HTML using font awesome and google fonts.
 
 ## Ideas for Updates
 
