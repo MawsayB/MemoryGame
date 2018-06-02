@@ -163,16 +163,16 @@ p {
     font-weight: bold;
     text-align: center;
     color: rgb(101, 106, 196);
-}
-
-p {
+    padding-bottom: 0px;
     margin: 0;
+    padding: 0;
 }
 
-p#modalText {
-    margin-top: 30px;
+.again {
+    font-size: 18px;
 }
 
+/* Styliing for iPad */
 @media only screen and (min-width: 768px) {
     .deck {
         width: 700px;
@@ -193,8 +193,27 @@ p#modalText {
         font-size: 15px;
         margin-left: 0px;
     }
+
+    .modal {
+        height: 30%; 
+        margin-left: 10%;
+        margin-top: 35%;
+    }
+
+    .modal ul {
+        margin-left: 40%;
+    }
+
+    p {
+        font-size: 70px;
+    }
+
+    .deck .card.show {
+        font-size: 55px;
+    }
 }
 
+/* Styliing for computer */
 @media only screen and (min-width: 1280px) {
     .deck {
         width: 1000px;
@@ -213,6 +232,10 @@ p#modalText {
 
     .container {
         margin-left: 15%;
+    }
+
+    .deck .card.show {
+        font-size: 100px;
     }
 
 }
