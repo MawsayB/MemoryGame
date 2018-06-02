@@ -144,7 +144,7 @@ allCards.forEach(function (card) {
                 }
 
                 // When all 8 matches are found, congrats to user on finished game
-                if (matchedCards.length == 2) {
+                if (matchedCards.length == 16) {
                     currentTime = gameTimer;
                     clearInterval(gameTimer);
                     var endTime = timer.innerText;
